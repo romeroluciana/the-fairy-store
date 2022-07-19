@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Flex>
       <Link to="/">
-        <Heading>The fairy store</Heading>
+        <Heading>The fairy store test netlify</Heading>
         <Button>Home</Button>
       </Link>
       <Link to="aboutUs">
