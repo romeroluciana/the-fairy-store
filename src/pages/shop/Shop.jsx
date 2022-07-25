@@ -10,7 +10,7 @@ const Shop = () => {
     <Box w="100%" my="30px">
       {isLoading && <Spinner mx="50%" my="50px" size="xl" />}
       {isLoading || (
-        <Grid templateColumns="repeat(4, 1fr)" mx="auto" w="90%">
+        <Grid templateColumns="repeat(4, 1fr)" mx="auto" w="95%">
           {products &&
             products.map((product) => {
               return <ProductCard info={product} key={product.id} />
