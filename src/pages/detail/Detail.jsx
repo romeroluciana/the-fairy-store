@@ -46,9 +46,7 @@ const Detail = () => {
           <Image
             rounded={'md'}
             alt={'product image'}
-            src={
-              'https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080'
-            }
+            src={product?.attributes.image.data.attributes.url}
             fit={'cover'}
             align={'center'}
             w={'100%'}
@@ -69,7 +67,7 @@ const Detail = () => {
               fontWeight={300}
               fontSize={'2xl'}
             >
-              $350.00
+              ${product?.attributes.price}
             </Text>
           </Box>
 
@@ -88,8 +86,7 @@ const Detail = () => {
                 fontSize={'2xl'}
                 fontWeight={'300'}
               >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore
+                {product?.attributes.description}
               </Text>
             </VStack>
           </Stack>

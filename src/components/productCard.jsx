@@ -82,7 +82,7 @@ const ProductCard = ({ info }) => {
         />
         <Box p="4">
           <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Link to="productDetail">
+            <Link to={`/shop/${id}`}>
               <Tooltip
                 label="More details"
                 bg="white"
