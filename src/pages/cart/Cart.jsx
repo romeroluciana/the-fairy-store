@@ -11,7 +11,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import { IoBagHandleSharp } from 'react-icons/io5'
-
+import { Link } from 'react-router-dom'
 
 import useCart from '../../hooks/useCart'
 import Product from './Product'
@@ -19,20 +19,28 @@ import Product from './Product'
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { cart, deleteAllProducts, totalCart } = useCart()
-  const total = cart.length
   return (
     <>
       <Text onClick={onOpen}>
-        <IoBagHandleSharp /> ({total})
+        <IoBagHandleSharp /> {cart.length}
       </Text>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>My bag</DrawerHeader>
+          <DrawerHeader>Shopping bag</DrawerHeader>
           {!!cart.length || (
-            <DrawerBody>
+            <DrawerBody
+              display={'flex'}
+              flexDirection={'column'}
+              alignItems={'center'}
+            >
               <Text> Your bag is empty </Text>
+              <Link to="shop">
+                <Button variant="link" colorScheme="pink" onClick={onClose}>
+                  Shop now
+                </Button>
+              </Link>
             </DrawerBody>
           )}
 
@@ -50,9 +58,9 @@ const Cart = () => {
                   w="full"
                   onClick={deleteAllProducts}
                 >
-                  Empty cart
+                  Empty bag
                 </Button>
-                <Text>Total: {totalCart}</Text>
+                <Text>Total: ${totalCart} </Text>
               </DrawerFooter>
             </>
           )}

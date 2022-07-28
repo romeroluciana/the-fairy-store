@@ -35,11 +35,9 @@ const Header = () => {
         <Link to="cart">
           <Cart />
         </Link>
-        <Link to="cart">
           <Text mx="10px" fontSize="1.3rem">
             <FaUserAlt />
           </Text>
-        </Link>
       </Flex>
     </Flex>
   )
