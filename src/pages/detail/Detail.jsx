@@ -26,13 +26,16 @@ import {
   SimpleGrid,
   StackDivider,
   useColorModeValue,
-  Spinner
+  Spinner,
+  Button
 } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 
 import useGet from '../../hooks/useGet'
+import useCart from '../../hooks/useCart'
 
-const Detail = () => {
+const Detail = ({ info }) => {
+  const { addProduct } = useCart()
   const { id } = useParams()
   const { data: product, isLoading } = useGet(`products/${id}`)
   console.log(product)
@@ -93,6 +96,7 @@ const Detail = () => {
                 </Text>
               </VStack>
             </Stack>
+            <Button>Add to bag</Button>
           </Stack>
         </SimpleGrid>
       )}

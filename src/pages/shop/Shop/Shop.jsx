@@ -1,15 +1,28 @@
-import { Grid, Box, Spinner, Flex } from '@chakra-ui/react'
+import { Grid, Box, Spinner, Flex, Button } from '@chakra-ui/react'
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 import ProductCard from '../../../components/productCard'
-import useGet from '../../../hooks/useGet'
+
+import useGetWithPagination from '../../../hooks/useGetWithPagination'
 import ProductFilters from './ProductFilters/ProductFilters'
 
 const Shop = () => {
-  const { data: products, isLoading } = useGet('products')
+  const {
+    data: products,
+    nextPage,
+    prevPage,
+    disableNextPage,
+    disablePrevPage,
+    isLoading,
+    setTitle,
+    setStock,
+    setMaxPrice,
+    setMinPrice
+  } = useGetWithPagination('products')
 
   return (
     <Flex m={'5%'}>
-      <ProductFilters />
+      <ProductFilters filterStock={setStock} filterTitle={setTitle} filterMax={setMaxPrice} filterMin={setMinPrice} />
       <Box w="80%">
         {isLoading && <Spinner mx="50%" my="50px" size="xl" />}
         {isLoading || (
@@ -21,6 +34,16 @@ const Shop = () => {
           </Grid>
         )}
       </Box>
+      <Flex justifyContent="center">
+        <Button onClick={prevPage} disabled={disablePrevPage} m="5px">
+          {' '}
+          <ArrowBackIcon />
+        </Button>
+        <Button onClick={nextPage} disabled={disableNextPage} m="5px">
+          {' '}
+          <ArrowForwardIcon />
+        </Button>
+      </Flex>
     </Flex>
   )
 }

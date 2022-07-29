@@ -6,12 +6,31 @@ import {
   FormControl,
   FormLabel,
   Switch,
+  Input,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  Text,
 } from '@chakra-ui/react'
 
 import PriceSlider from './PriceSlider'
-import SearchInput from './SearchInput'
 
-const ProductFilters = () => {
+const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
+  const handleOnChange = (e) => {
+    filterTitle(e.target.value)
+  }
+  const handleStock = (e) => {
+    filterStock(e.target.checked ? 1 : 0)
+  }
+  const handleMin = (e) => {
+    filterMin(e.target.value)
+  }
+  const handleMax = (e) => {
+    filterMax(e.target.value)
+  }
+
   return (
     <Box
       w={'20%'}
@@ -22,18 +41,37 @@ const ProductFilters = () => {
       h={'230px'}
       m={'1%'}
     >
-      <Heading
-        as="h3"
-        size="lg"
-        color={useColorModeValue('gray.600', 'white')}
-      >
+      <Heading as="h3" size="lg" color={useColorModeValue('gray.600', 'white')}>
         Products
       </Heading>
-      <SearchInput />
-      <PriceSlider />
+
+      <Input onChange={handleOnChange} placeholder="Search..." />
+
+      <Box>
+        <Text>Desde</Text>
+        <NumberInput size="xs" maxW={16}>
+          <NumberInputField onChange={handleMax} />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+        <Text>Hasta</Text>
+        <NumberInput size="xs" maxW={16}>
+          <NumberInputField onChange={handleMin} />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
+        <Text color={useColorModeValue('gray.900', 'gray.400')}>
+          Precio: $0 - $10000
+        </Text>
+      </Box>
+
       <FormControl display="flex" alignItems="center">
         <FormLabel mb="0">Unidades disponibles</FormLabel>
-        <Switch colorScheme="pink" />
+        <Switch onChange={handleStock} colorScheme="pink" />
       </FormControl>
     </Box>
   )

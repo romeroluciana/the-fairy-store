@@ -102,7 +102,8 @@ const ProductCard = ({ info }) => {
                   }}
                   cursor={'pointer'}
                 >
-                  {product.title}
+                  {product.title}-
+                  {product.stock}
                 </Box>
               </Tooltip>
             </Link>

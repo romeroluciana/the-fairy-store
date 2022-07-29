@@ -4,20 +4,34 @@ import {
   SliderThumb,
   SliderFilledTrack,
   Text,
-    useColorModeValue,
-  Box
+  useColorModeValue,
+  Box,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
 } from '@chakra-ui/react'
 
 const PriceSlider = () => {
   return (
-    <Box >
-      <Text>Filtrar por precio</Text>
-      <Slider aria-label="slider-ex-2" colorScheme="pink" defaultValue={30}>
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
+    <Box>
+      <Text>Desde</Text>
+      <NumberInput size="xs" maxW={16}>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+      <Text>Hasta</Text>
+      <NumberInput size="xs" maxW={16}>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
       <Text color={useColorModeValue('gray.900', 'gray.400')}>
         Precio: $0 - $10000
       </Text>
