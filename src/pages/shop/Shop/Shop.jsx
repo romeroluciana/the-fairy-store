@@ -17,32 +17,39 @@ const Shop = () => {
     setTitle,
     setStock,
     setMaxPrice,
-    setMinPrice
+    setMinPrice,
   } = useGetWithPagination('products')
 
   return (
-    <Flex m={'5%'}>
-      <ProductFilters filterStock={setStock} filterTitle={setTitle} filterMax={setMaxPrice} filterMin={setMinPrice} />
-      <Box w="80%">
-        {isLoading && <Spinner mx="50%" my="50px" size="xl" />}
-        {isLoading || (
-          <Grid templateColumns="repeat(4, 1fr)" mx="auto" w="95%">
-            {products &&
-              products.map((product) => {
-                return <ProductCard info={product} key={product.id} />
-              })}
-          </Grid>
-        )}
-      </Box>
-      <Flex justifyContent="center">
-        <Button onClick={prevPage} disabled={disablePrevPage} m="5px">
-          {' '}
-          <ArrowBackIcon />
-        </Button>
-        <Button onClick={nextPage} disabled={disableNextPage} m="5px">
-          {' '}
-          <ArrowForwardIcon />
-        </Button>
+    <Flex m={'5%'} justifyContent={'space-between'} >
+      <ProductFilters
+        filterStock={setStock}
+        filterTitle={setTitle}
+        filterMax={setMaxPrice}
+        filterMin={setMinPrice}
+      />
+      <Flex w="80%" flexDirection={'column'} >
+        <Box >
+          {isLoading && <Spinner mx="50%" my="50px" size="xl" />}
+          {isLoading || (
+            <Grid templateColumns="repeat(4, 1fr)" mx="auto" w="95%">
+              {products &&
+                products.map((product) => {
+                  return <ProductCard info={product} key={product.id} />
+                })}
+            </Grid>
+          )}
+        </Box>
+        <Flex justifyContent="center">
+          <Button onClick={prevPage} disabled={disablePrevPage} m="5px">
+            {' '}
+            <ArrowBackIcon />
+          </Button>
+          <Button onClick={nextPage} disabled={disableNextPage} m="5px">
+            {' '}
+            <ArrowForwardIcon />
+          </Button>
+        </Flex>
       </Flex>
     </Flex>
   )

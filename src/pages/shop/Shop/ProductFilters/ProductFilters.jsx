@@ -48,7 +48,7 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
       <Input onChange={handleOnChange} placeholder="Search..." />
 
       <Box>
-        <Text>Desde</Text>
+        <Text>From</Text>
         <NumberInput size="xs" maxW={16}>
           <NumberInputField onChange={handleMax} />
           <NumberInputStepper>
@@ -56,7 +56,7 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
             <NumberDecrementStepper />
           </NumberInputStepper>
         </NumberInput>
-        <Text>Hasta</Text>
+        <Text>To</Text>
         <NumberInput size="xs" maxW={16}>
           <NumberInputField onChange={handleMin} />
           <NumberInputStepper>
@@ -64,13 +64,11 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
             <NumberDecrementStepper />
           </NumberInputStepper>
         </NumberInput>
-        <Text color={useColorModeValue('gray.900', 'gray.400')}>
-          Precio: $0 - $10000
-        </Text>
+       
       </Box>
 
       <FormControl display="flex" alignItems="center">
-        <FormLabel mb="0">Unidades disponibles</FormLabel>
+        <FormLabel mb="0">Available stock</FormLabel>
         <Switch onChange={handleStock} colorScheme="pink" />
       </FormControl>
     </Box>
