@@ -33,7 +33,7 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
 
   return (
     <Box
-      w={'20%'}
+      w={{ base: '70%', md: '20%' }}
       display={'flex'}
       flexDirection={'column'}
       alignItems={'baseline'}
@@ -64,7 +64,6 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
             <NumberDecrementStepper />
           </NumberInputStepper>
         </NumberInput>
-       
       </Box>
 
       <FormControl display="flex" alignItems="center">

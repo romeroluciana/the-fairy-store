@@ -21,18 +21,31 @@ const Shop = () => {
   } = useGetWithPagination('products')
 
   return (
-    <Flex m={'5%'} justifyContent={'space-between'} >
+    <Flex
+      m={'5%'}
+      justifyContent={{ base: 'center', md: 'space-between' }}
+      alignItems={{ base: 'center', md: 'stretch' }}
+      direction={{ base: 'column', md: 'row' }}
+    >
       <ProductFilters
         filterStock={setStock}
         filterTitle={setTitle}
         filterMax={setMaxPrice}
         filterMin={setMinPrice}
       />
-      <Flex w="80%" flexDirection={'column'} >
-        <Box >
+      <Flex w="80%" flexDirection={'column'} justifyContent={'center'}>
+        <Box justifyContent={'center'}>
           {isLoading && <Spinner mx="50%" my="50px" size="xl" />}
           {isLoading || (
-            <Grid templateColumns="repeat(4, 1fr)" mx="auto" w="95%">
+            <Grid
+              templateColumns={{
+                base: 'repeat(1, 1fr)',
+                sm: 'repeat(3, 1fr)',
+                md: 'repeat(4, 1fr)',
+              }}
+              mx="auto"
+              w="95%"
+            >
               {products &&
                 products.map((product) => {
                   return <ProductCard info={product} key={product.id} />

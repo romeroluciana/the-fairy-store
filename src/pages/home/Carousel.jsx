@@ -36,8 +36,7 @@ const Carousel = () => {
     {
       title: 'Design Projects 1',
       text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://i.pinimg.com/564x/f0/d6/29/f0d629f1d123da1605dc3d5d17abd28d.jpg',
+      image: 'https://wallpapercave.com/uwp/uwp866757.png',
     },
     {
       title: 'Design Projects 2',

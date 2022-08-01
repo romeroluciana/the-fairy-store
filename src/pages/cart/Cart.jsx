@@ -9,6 +9,7 @@ import {
   DrawerOverlay,
   Text,
   useDisclosure,
+  IconButton,
 } from '@chakra-ui/react'
 import { IoBagHandleSharp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
@@ -21,9 +22,14 @@ const Cart = () => {
   const { cart, deleteAllProducts, totalCart } = useCart()
   return (
     <>
-      <Text onClick={onOpen}>
-        <IoBagHandleSharp /> {cart.length}
-      </Text>
+      <Button
+        leftIcon={<IoBagHandleSharp />}
+        colorScheme="pink"
+        variant="ghost"
+        onClick={onOpen}
+      >
+        {cart.length}
+      </Button>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>

@@ -103,7 +103,6 @@ const ProductCard = ({ info }) => {
                   cursor={'pointer'}
                 >
                   {product.title}
-                  
                 </Box>
               </Tooltip>
             </Link>

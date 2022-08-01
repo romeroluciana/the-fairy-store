@@ -1,17 +1,18 @@
-import { Text, useColorMode } from '@chakra-ui/react'
+import { Button, useColorMode } from '@chakra-ui/react'
 import { BsSun, BsMoonStarsFill } from 'react-icons/bs'
 
 const ColorModeToggle = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <Text
+    <Button
+      w="fit-content"
       aria-label="Toggle Color Mode"
       onClick={toggleColorMode}
-      cursor={'pointer'}
-      w="fit-content"
+      colorScheme="pink"
+      variant="ghost"
     >
       {colorMode === 'light' ? <BsMoonStarsFill /> : <BsSun />}
-    </Text>
+    </Button>
   )
 }
 
