@@ -11,6 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 
 const settings = {
@@ -124,17 +125,19 @@ const Carousel = () => {
                   alignSelf={'center'}
                   position={'relative'}
                 >
-                  <Button
-                    rounded={'full'}
-                    size="lg"
-                    bg={'pink.400'}
-                    color={'white'}
-                    _hover={{
-                      bg: 'pink.500',
-                    }}
-                  >
-                    Shop now
-                  </Button>
+                  <Link to="shop">
+                    <Button
+                      rounded={'full'}
+                      size="lg"
+                      bg={'pink.400'}
+                      color={'white'}
+                      _hover={{
+                        bg: 'pink.500',
+                      }}
+                    >
+                      Shop now
+                    </Button>
+                  </Link>
                 </Stack>
               </Stack>
             </Container>
