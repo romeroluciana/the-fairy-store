@@ -69,12 +69,7 @@ const Cart = () => {
                 </Button>
                 <Text>Total: ${totalCart} </Text>
                 <Link to="checkout">
-                  <Button
-                    colorScheme="pink"
-                    variant="link"
-                   
-                    onClose={onClose}
-                  >
+                  <Button colorScheme="pink" variant="link" onClick={onClose}>
                     Continue with order information
                   </Button>
                 </Link>
