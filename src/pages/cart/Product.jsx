@@ -17,7 +17,8 @@ import { BsFillTrashFill } from 'react-icons/bs'
 import useCart from '../../hooks/useCart'
 
 const Product = ({ info }) => {
-  const { deleteItemCart } = useCart()
+  const { cantidad } = info
+  const { deleteItemCart, addProduct, decrementItemCart } = useCart()
   const { attributes: product } = info
   return (
     <Flex
@@ -41,11 +42,11 @@ const Product = ({ info }) => {
         </Flex>
       </Box>
 
-      <NumberInput size="xs" maxW={16}>
+      <NumberInput size="xs" maxW={16} min={1} defaultValue={cantidad}>
         <NumberInputField />
         <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
+          <NumberIncrementStepper onClick={() => addProduct(info)} />
+          <NumberDecrementStepper onClick={() => decrementItemCart(info)} />
         </NumberInputStepper>
       </NumberInput>
 

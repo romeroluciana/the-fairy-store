@@ -38,7 +38,7 @@ const Checkout = () => {
         <HStack m={'5%'} flexDirection={'column'}>
           <Flex justifyContent={'space-between'} w={'100%'} mb={'8%'}>
             <Text>Shipping:</Text>
-            <Text>At the moment we do not deliver 😔</Text>
+            <Text>At the moment we don't deliver 😔</Text>
           </Flex>
           <Flex justifyContent={'space-between'} w={'100%'}>
             <Text>Total:</Text>

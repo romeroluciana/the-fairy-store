@@ -37,7 +37,7 @@ const Header = () => {
       >
         <Flex w={'100%'} justifyContent={'space-between'}>
           <Link to="/">
-            <Heading>✨</Heading>
+            <Heading>🦋</Heading>
           </Link>
           <IconButton
             size={'md'}

@@ -4,16 +4,18 @@ import { cartState } from '../recoil/cartAtom'
 
 const useCart = () => {
   const [cart, setCart] = useRecoilState(cartState)
+  const productExist = (product) => {
+    return cart.some((pr) => pr.id === product.id)
+  }
 
-  const addProduct = (info) => {
-    const productExist = cart.some((pr) => pr.id === info.id)
-    if (productExist === false) {
-      const productoCantidad = { ...info, cantidad: 1 }
+  const addProduct = (product) => {
+    if (!productExist(product)) {
+      const productoCantidad = { ...product, cantidad: 1 }
       setCart([...cart, productoCantidad])
     } else {
       setCart(
         cart.map((pr) => {
-          if (pr.id === info.id) {
+          if (pr.id === product.id) {
             return { ...pr, cantidad: pr.cantidad + 1 }
           }
           return pr
@@ -22,9 +24,26 @@ const useCart = () => {
     }
   }
 
-  const deleteItemCart = (id) => {
-    setCart(cart.filter((info) => info.id !== id))
+  const deleteItemCart = (product) => {
+    setCart(cart.filter((pr) => pr.id !== product))
   }
+
+  const decrementItemCart = (product) => {
+    if (!productExist(product)) {
+      const productoCantidad = { ...product, cantidad: 1 }
+      setCart([...cart, productoCantidad])
+    } else {
+      setCart(
+        cart.map((pr) => {
+          if (pr.id === product.id) {
+            return { ...pr, cantidad: pr.cantidad - 1 }
+          }
+          return pr
+        })
+      )
+    }
+  }
+
   const deleteAllProducts = () => {
     setCart([])
   }
@@ -39,6 +58,7 @@ const useCart = () => {
     deleteItemCart,
     deleteAllProducts,
     totalCart,
+    decrementItemCart,
   }
 }
 export default useCart

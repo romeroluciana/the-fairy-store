@@ -9,6 +9,7 @@ import Home from './pages/home/Home'
 import PageNotFound from './pages/pageNotFound/PageNotFound'
 import Shop from './pages/shop/Shop/Shop'
 import Checkout from './pages/cart/Checkout'
+import MyOrders from './pages/cart/MyOrders'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="shop/:id" element={<Detail />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="orders" element={<MyOrders />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Layout>
