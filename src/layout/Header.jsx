@@ -9,6 +9,7 @@ import {
   Button,
   useDisclosure,
   Heading,
+  Image,
   Stack,
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
@@ -16,6 +17,7 @@ import { Link } from 'react-router-dom'
 import Cart from '../pages/cart/Cart'
 import Form from '../pages/form/Form'
 import ColorModeToggle from './ColorModeToggle'
+
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -37,7 +39,10 @@ const Header = () => {
       >
         <Flex w={'100%'} justifyContent={'space-between'}>
           <Link to="/">
-            <Heading>🦋</Heading>
+            <Image
+              boxSize="100px"
+               src={'https://i.ibb.co/M5vJRnj/The-fairy-Photo-Room.png'}
+            />
           </Link>
           <IconButton
             size={'md'}

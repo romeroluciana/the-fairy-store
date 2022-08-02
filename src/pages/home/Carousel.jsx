@@ -8,13 +8,11 @@ import {
   Heading,
   Text,
   Container,
+  Button,
 } from '@chakra-ui/react'
-
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
-
 import Slider from 'react-slick'
 
-// Settings for the slider
 const settings = {
   dots: true,
   arrows: false,
@@ -34,29 +32,21 @@ const Carousel = () => {
 
   const cards = [
     {
-      title: 'Design Projects 1',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://i.pinimg.com/736x/ed/ab/86/edab8691dc3c6288e3bdf05f9fcf8616.jpg',
+      title: 'Make it fashion with',
+      subtitle: 'The fairy store ✨',
+      image: 'https://wallpaperaccess.com/full/4662159.jpg',
     },
     {
-      title: 'Design Projects 2',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
-    },
-    {
-      title: 'Design Projects 3',
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-      image:
-        'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+      title: 'Find the gift',
+      subtitle: 'you are looking for!',
+      image: 'https://wallpaperaccess.com/full/144511.png',
     },
   ]
 
   return (
     <Box
       position={'relative'}
-      height={'500px'}
+      height={{ base: '300px', md: '600px' }}
       width={'full'}
       overflow={'hidden'}
     >
@@ -71,9 +61,9 @@ const Carousel = () => {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
+        color={'white'}
         variant="ghost"
         position="absolute"
         left={side}
@@ -84,9 +74,9 @@ const Carousel = () => {
       >
         <BiLeftArrowAlt size="40px" />
       </IconButton>
-      {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
+        color={'white'}
         variant="ghost"
         position="absolute"
         right={side}
@@ -97,34 +87,55 @@ const Carousel = () => {
       >
         <BiRightArrowAlt size="40px" />
       </IconButton>
-      {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height={'1xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}
           >
-            {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
+            <Container maxW={'3xl'}>
               <Stack
-                spacing={6}
-                w={'full'}
-                maxW={'lg'}
-                position="absolute"
-                top="50%"
-                transform="translate(0, -50%)"
+                as={Box}
+                textAlign={'center'}
+                spacing={{ base: 8, md: 14 }}
+                py={{ base: 20, md: 36 }}
               >
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                  {card.title}
+                <Heading
+                  color={'white'}
+                  fontWeight={600}
+                  fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+                  lineHeight={'110%'}
+                >
+                  {card.title} <br />
+                  <Text as={'span'} color={'white'}>
+                    {card.subtitle}
+                  </Text>
                 </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                  {card.text}
-                </Text>
+
+                <Stack
+                  direction={'column'}
+                  spacing={3}
+                  align={'center'}
+                  alignSelf={'center'}
+                  position={'relative'}
+                >
+                  <Button
+                    rounded={'full'}
+                    size="lg"
+                    bg={'pink.400'}
+                    color={'white'}
+                    _hover={{
+                      bg: 'pink.500',
+                    }}
+                  >
+                    Shop now
+                  </Button>
+                </Stack>
               </Stack>
             </Container>
           </Box>

@@ -38,7 +38,7 @@ export default function AboutUs() {
               w={'100%'}
               h={'100%'}
               src={
-                'https://quizizz.com/media/resource/gs/quizizz-media/quizzes/ecab8688-cccd-4257-ac81-51dc6d219983'
+                'https://images.pexels.com/photos/13017023/pexels-photo-13017023.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
               }
             />
           </Box>
