@@ -8,6 +8,7 @@ import Form from './pages/form/Form'
 import Home from './pages/home/Home'
 import PageNotFound from './pages/pageNotFound/PageNotFound'
 import Shop from './pages/shop/Shop/Shop'
+import Checkout from './pages/cart/Checkout'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="shop" element={<Shop />} />
           <Route path="shop/:id" element={<Detail />} />
           <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Layout>

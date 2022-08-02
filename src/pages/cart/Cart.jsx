@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom'
 
 import useCart from '../../hooks/useCart'
 import Product from './Product'
+import Checkout from './Checkout'
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -67,6 +68,16 @@ const Cart = () => {
                   Empty bag
                 </Button>
                 <Text>Total: ${totalCart} </Text>
+                <Link to="checkout">
+                  <Button
+                    colorScheme="pink"
+                    variant="link"
+                   
+                    onClose={onClose}
+                  >
+                    Continue with order information
+                  </Button>
+                </Link>
               </DrawerFooter>
             </>
           )}

@@ -25,6 +25,7 @@ const Product = ({ info }) => {
       justifyContent={'space-between'}
       borderBottom={1}
       borderStyle={'solid'}
+      w={'100%'}
       borderColor={useColorModeValue('gray.200', 'gray.900')}
     >
       <Box display={'flex'} my={'5%'}>
