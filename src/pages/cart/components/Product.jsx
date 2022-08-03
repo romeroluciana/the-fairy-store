@@ -13,8 +13,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { BsFillTrashFill } from 'react-icons/bs'
+import useCart from '../../../hooks/useCart'
 
-import useCart from '../../hooks/useCart'
+
 
 const Product = ({ info }) => {
   const { cantidad } = info

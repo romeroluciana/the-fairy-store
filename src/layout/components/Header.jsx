@@ -14,9 +14,8 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-import Cart from '../pages/cart/Cart'
-import Form from '../pages/form/Form'
-import ColorModeToggle from './ColorModeToggle'
+import Cart from '../../pages/cart/Cart'
+import Form from '../../pages/form/Form'
 
 
 const Header = () => {
@@ -70,7 +69,6 @@ const Header = () => {
               </Link>
             </Stack>
             <Stack direction="row" align="center">
-              <ColorModeToggle />
               <Cart />
               <Form />
             </Stack>

@@ -2,7 +2,7 @@ import { Grid, Box, Spinner } from '@chakra-ui/react'
 
 import ProductCard from '../../components/productCard'
 import useGet from '../../hooks/useGet'
-import Carousel from './Carousel'
+import Carousel from './components/Carousel'
 
 const Home = () => {
   const { data: products, isLoading } = useGet(

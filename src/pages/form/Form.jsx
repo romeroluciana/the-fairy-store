@@ -1,38 +1,40 @@
+import { useState } from 'react'
+
 import {
-  Button,
   Tabs,
   TabList,
   Tab,
   TabPanels,
   TabPanel,
-  Flex,
-  Text,
   Modal,
   ModalOverlay,
   ModalContent,
   useDisclosure,
   ModalCloseButton,
   ModalBody,
-  FormControl,
-  FormLabel,
-  Input,
-  ModalFooter,
   IconButton,
-  Box,
-  InputGroup,
-  HStack,
-  InputRightElement,
-  Stack,
-  Heading,
-  useColorModeValue,
-  Link,
 } from '@chakra-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import { FaUserAlt } from 'react-icons/fa'
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { useState } from 'react'
+
+import userSchema from '../../validations/UserValidation'
+
+import SignUpForm from './components/SignUpForm'
+import LogInForm from './components/LogInForm'
+
+
 const Form = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [showPassword, setShowPassword] = useState(false)
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  })
+
   return (
     <>
       <IconButton
@@ -69,82 +71,12 @@ const Form = () => {
               </TabList>
               <TabPanels>
                 <TabPanel>
-                  <Stack spacing={4}>
-                    <FormControl id="firstName" isRequired>
-                      <FormLabel>Full Name</FormLabel>
-                      <Input type="text" />
-                    </FormControl>
-                    <FormControl id="email" isRequired>
-                      <FormLabel>Email address</FormLabel>
-                      <Input type="email" />
-                    </FormControl>
-                    <FormControl id="password" isRequired>
-                      <FormLabel>Password</FormLabel>
-                      <InputGroup>
-                        <Input type={showPassword ? 'text' : 'password'} />
-                        <InputRightElement h={'full'}>
-                          <Button
-                            variant={'ghost'}
-                            onClick={() =>
-                              setShowPassword((showPassword) => !showPassword)
-                            }
-                          >
-                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                          </Button>
-                        </InputRightElement>
-                      </InputGroup>
-                    </FormControl>
-                    <Stack spacing={10} pt={2}>
-                      <Button
-                        loadingText="Submitting"
-                        size="lg"
-                        bg={'pink.400'}
-                        color={'white'}
-                        _hover={{
-                          bg: 'pink.500',
-                        }}
-                      >
-                        Sign up
-                      </Button>
-                    </Stack>
-                  </Stack>
+                  {/* Registrarse  */}
+                  <SignUpForm />
                 </TabPanel>
                 <TabPanel>
-                  <Stack spacing={4}>
-                    <FormControl id="email" isRequired>
-                      <FormLabel>Email address</FormLabel>
-                      <Input type="email" />
-                    </FormControl>
-                    <FormControl id="password" isRequired>
-                      <FormLabel>Password</FormLabel>
-                      <InputGroup>
-                        <Input type={showPassword ? 'text' : 'password'} />
-                        <InputRightElement h={'full'}>
-                          <Button
-                            variant={'ghost'}
-                            onClick={() =>
-                              setShowPassword((showPassword) => !showPassword)
-                            }
-                          >
-                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                          </Button>
-                        </InputRightElement>
-                      </InputGroup>
-                    </FormControl>
-                    <Stack spacing={10} pt={2}>
-                      <Button
-                        loadingText="Submitting"
-                        size="lg"
-                        bg={'pink.400'}
-                        color={'white'}
-                        _hover={{
-                          bg: 'pink.500',
-                        }}
-                      >
-                        Log in
-                      </Button>
-                    </Stack>
-                  </Stack>
+                  {/* Iniciar sesion  */}
+                  <LogInForm />
                 </TabPanel>
               </TabPanels>
             </Tabs>

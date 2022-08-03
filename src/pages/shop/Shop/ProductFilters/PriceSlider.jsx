@@ -1,8 +1,4 @@
 import {
-  Slider,
-  SliderTrack,
-  SliderThumb,
-  SliderFilledTrack,
   Text,
   useColorModeValue,
   Box,

@@ -8,8 +8,8 @@ import Form from './pages/form/Form'
 import Home from './pages/home/Home'
 import PageNotFound from './pages/pageNotFound/PageNotFound'
 import Shop from './pages/shop/Shop/Shop'
-import Checkout from './pages/cart/Checkout'
-import MyOrders from './pages/cart/MyOrders'
+import Checkout from './pages/cart/components/Checkout'
+import MyOrders from './pages/cart/components/MyOrders'
 
 const App = () => {
   return (

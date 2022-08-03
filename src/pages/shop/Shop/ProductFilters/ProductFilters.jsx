@@ -1,7 +1,6 @@
 import {
   Heading,
   useColorModeValue,
-  Stack,
   Box,
   FormControl,
   FormLabel,
@@ -15,7 +14,6 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-import PriceSlider from './PriceSlider'
 
 const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
   const handleOnChange = (e) => {

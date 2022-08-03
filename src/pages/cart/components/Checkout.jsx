@@ -8,8 +8,9 @@ import {
   Stack,
 } from '@chakra-ui/react'
 
-import useCart from '../../hooks/useCart'
+import useCart from '../../../hooks/useCart'
 import Product from './Product'
+
 
 const Checkout = () => {
   const { cart, totalCart } = useCart()

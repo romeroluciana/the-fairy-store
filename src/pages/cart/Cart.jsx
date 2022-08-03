@@ -15,8 +15,8 @@ import { IoBagHandleSharp } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
 import useCart from '../../hooks/useCart'
-import Product from './Product'
-import Checkout from './Checkout'
+import Product from './components/Product'
+import Checkout from './components/Checkout'
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
