@@ -23,7 +23,6 @@ import userSchema from '../../validations/UserValidation'
 import SignUpForm from './components/SignUpForm'
 import LogInForm from './components/LogInForm'
 
-
 const Form = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 

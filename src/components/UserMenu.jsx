@@ -1,25 +1,27 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
 
+import useCart from '../hooks/useCart'
 import useUser from '../hooks/useUser'
-import userAuthState from '../recoil/userAtom'
 
 const UserMenu = () => {
-  const { signOut } = useUser()
-  const { user } = useRecoilValue(userAuthState)
+  const { user, signOut } = useUser()
+  const { deleteAllProducts } = useCart()
+
+  const signOff = () => {
+    signOut(null)
+    deleteAllProducts()
+  }
   return (
     <Menu>
       <MenuButton as={Button}>User</MenuButton>
       <MenuList>
         <MenuItem>{user?.user?.username}</MenuItem>
-        <MenuItem>
-          <Link to="/profile">Profile</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/orders">My orders</Link>
-        </MenuItem>
-        <MenuItem onClick={() => signOut(null)}>Sign out</MenuItem>
+        <Link to="profile">
+          <MenuItem>Profile</MenuItem>
+        </Link>
+        <MenuItem>My orders</MenuItem>
+        <MenuItem onClick={signOff}>Sign out</MenuItem>
       </MenuList>
     </Menu>
   )

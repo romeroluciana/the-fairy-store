@@ -10,6 +10,7 @@ import {
   InputRightElement,
   FormErrorMessage,
   Stack,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios from 'axios'
@@ -38,7 +39,7 @@ const LogInForm = () => {
         }
       )
       .then((response) => {
-        signIn(response.data.user)
+        signIn({ ...response.data.user, jwt: response.data.jwt })
       })
       .catch((error) => {
         console.log('An error occurred:', error.response)

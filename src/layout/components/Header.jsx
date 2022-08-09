@@ -14,12 +14,14 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
+import UserMenu from '../../components/UserMenu'
+import useUser from '../../hooks/useUser'
 import Cart from '../../pages/cart/Cart'
 import Form from '../../pages/form/Form'
 
-
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { user } = useUser()
 
   return (
     <Flex
@@ -40,7 +42,7 @@ const Header = () => {
           <Link to="/">
             <Image
               boxSize="100px"
-               src={'https://i.ibb.co/M5vJRnj/The-fairy-Photo-Room.png'}
+              src={'https://i.ibb.co/M5vJRnj/The-fairy-Photo-Room.png'}
             />
           </Link>
           <IconButton
@@ -70,7 +72,7 @@ const Header = () => {
             </Stack>
             <Stack direction="row" align="center">
               <Cart />
-              <Form />
+              {user ? <UserMenu /> : <Form />}
             </Stack>
           </HStack>
         </Flex>

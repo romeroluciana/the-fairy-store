@@ -4,7 +4,9 @@ import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import ProductCard from '../../../components/productCard'
 
 import useGetWithPagination from '../../../hooks/useGetWithPagination'
+
 import ProductFilters from './ProductFilters/ProductFilters'
+
 
 const Shop = () => {
   const {
@@ -19,6 +21,7 @@ const Shop = () => {
     setMaxPrice,
     setMinPrice,
   } = useGetWithPagination('products')
+
 
   return (
     <Flex

@@ -13,7 +13,7 @@ import {
   NumberIncrementStepper,
   Text,
 } from '@chakra-ui/react'
-
+import useUser from '../../../../hooks/useUser'
 
 const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
   const handleOnChange = (e) => {
@@ -28,6 +28,7 @@ const ProductFilters = ({ filterTitle, filterStock, filterMax, filterMin }) => {
   const handleMax = (e) => {
     filterMax(e.target.value)
   }
+
 
   return (
     <Box
