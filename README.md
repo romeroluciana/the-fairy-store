@@ -17,9 +17,9 @@ Este proyecto fue creado en React y se utilizaron las librerías Chakra Ui, Yup,
 - Iniciar sesión
 - Cerrar sesión
 - Crear pedidos
-- Listar datos de lxs usuarixs
+- Listar datos de usuarixs
 - Listar pedido
-- Guardar información de lxs usuarixs y del carrito en el localStorage
+- Guardar información de usuarixs y del carrito en el localStorage
 
 ### Para inicializar el proyecto
 
