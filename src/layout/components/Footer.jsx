@@ -24,7 +24,7 @@ const Footer = () => {
       >
         <Stack direction={'column'}>
           <Text>Made by Luciana Romero</Text>
-          <Text>© 2022 The fairy store.</Text>
+          <Text>© The fairy store.</Text>
         </Stack>
 
         <Stack direction={'row'} spacing={6}>
